@@ -3595,11 +3595,11 @@ git congif --global user.email "779878443@qq.com"
 
 按我的认识，更清楚且通俗的解释就是：git维护的代码分成三部分，“当前工作目录”<->“index file”<->git仓库。git commit会将index file中的改变写到git仓库；git add会将“当前工作目录”的改变写到“index file”；“commit -a”则会直接将“当前工作目录”的改动同时写到“index file”和“git仓库”。
 
-在用cmd时提示"more?"用HEAD~x或"HEAD^"或HEAD^^替换HEAD^^。建议不用cmd而用bash
+在用cmd时提示"more?"用HEAD~x或"HEAD^ "或HEAD^ ^ 替换HEAD^^。建议不用cmd而用bash
 
 以一行图表方式显示log:`git log --graph --oneline`
-
-git commit -m 命令写多行注释：使用bash而不是cmd，`git commit -m ``,在写完注释后以'结束就可以了
+`git commit -m` 命令写多行注释：使用bash而不是cmd，`git commit -m '`,在写完注释后以'结束就可以了
+`git log --stat 1a410e` 查看sha1为1a410e的commit对象的记录
 
 git reset:
 1. `git reset --soft HEAD` 工作区不变，stage不会变，本地仓库回滚到指定提交
@@ -3614,8 +3614,9 @@ git reset:
 
 [关于 git reset 命令几个常用参数的理解](https://blog.csdn.net/hbwindy/article/details/51519999 )
 [git reset的三种模式](https://blog.csdn.net/catchertherye/article/details/49721697)
-[Git远程仓库的添加及克隆](https://blog.csdn.net/shufac/article/details/51766104)
+
 #### 远程仓库
+[Git远程仓库的添加及克隆](https://blog.csdn.net/shufac/article/details/51766104)
 ##### 建立远程仓库
 1. 创建SSH Key.`$ ssh-keygen -t rsa -C"youremail@example.com" `,
 2. 登陆github，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
