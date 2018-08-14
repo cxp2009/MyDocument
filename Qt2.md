@@ -38,6 +38,8 @@ Qt帮助文档中文翻译：
 
 <http://www.kuqin.com/qtdocument/tutorial.html>
 
+
+
 ##### 将信号和特定事件连接起来,如： 
 
 ```
@@ -3553,8 +3555,9 @@ setRenderHint(QPainter::Antialiasing);
 m_chart->mapToValue(event->pos()).x())
 ```
 
+## GIT
 
-**Git官方教程**
+#### Git官方教程
 https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80
 http://www.runoob.com/git/git-tutorial.html
 https://blog.csdn.net/u013510614/article/details/50588446
@@ -3568,8 +3571,8 @@ http://www.360doc.com/content/12/0419/17/1016783_204960412.shtml
 https://blog.csdn.net/qq_32452623/article/details/78417609
 [git暂存区[重要]](https://blog.csdn.net/daguanjia11/article/details/73065841)
 
-Git简单教程:
-一、一般流程
+#### Git简单教程:
+##### 一般流程
 1. 设置身份，只需要设置一次
 git config --global user.name "coder-pig" 
 git congif --global user.email "779878443@qq.com"
@@ -3584,11 +3587,10 @@ git congif --global user.email "779878443@qq.com"
 6. 查看提交日志
     git log
 7. 版本退回
-        方法1： 退回到当前版本git reset --hard HEAD，退回到上一个版本 git reset --hard HEAD^，以此类推
-        方法2： 使用版本号的前7位git reset --hard d9a5e13
-        
+	- 方法1： 退回到当前版本git reset --hard HEAD，退回到上一个版本 git reset --hard HEAD^，以此类推
+	- 方法2： 使用版本号的前7位git reset --hard d9a5e13       
 
-
+#### 其他
 查看操作记录git reflog，在覆盖了新版本时可以查看新版本号
 
 按我的认识，更清楚且通俗的解释就是：git维护的代码分成三部分，“当前工作目录”<->“index file”<->git仓库。git commit会将index file中的改变写到git仓库；git add会将“当前工作目录”的改变写到“index file”；“commit -a”则会直接将“当前工作目录”的改动同时写到“index file”和“git仓库”。
@@ -3610,14 +3612,11 @@ git reset:
 `git rm --cached x.x` 将文件移除库，变为untracked状态
 `git rm -r --cached x.x` 将文件夹移除库，变为untracked状态
 
-关于 git reset 命令几个常用参数的理解
-https://blog.csdn.net/hbwindy/article/details/51519999 
-git_reset
-git reset的三种模式
-https://blog.csdn.net/catchertherye/article/details/49721697
-
+[关于 git reset 命令几个常用参数的理解](https://blog.csdn.net/hbwindy/article/details/51519999 )
+[git reset的三种模式](https://blog.csdn.net/catchertherye/article/details/49721697)
 [Git远程仓库的添加及克隆](https://blog.csdn.net/shufac/article/details/51766104)
-建立远程仓库
+#### 远程仓库
+##### 建立远程仓库
 1. 创建SSH Key.`$ ssh-keygen -t rsa -C"youremail@example.com" `,
 2. 登陆github，打开“Account settings”，“SSH Keys”页面：然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
 3. 添加远程仓库。` $ git remote add origin git@github.com/Kevinfa2016/MyGitTest.git `
@@ -3626,8 +3625,22 @@ https://blog.csdn.net/catchertherye/article/details/49721697
 
 切换远程仓库 `git remote set-url origin URL`
 
-gitee可以使用private仓库
+##### [**远程仓库大致流程是：**](https://www.jianshu.com/p/8d26730386f3)这个完全正确
+1. 在github上创建项目
+2. 使用git clone https://github.com/xxxxxxx/xxxxx.git克隆到本地
+3. 编辑项目
+4. git add . （将改动添加到暂存区）
+5. git commit -m "提交说明"
+6. git push origin master 将本地更改推送到远程master分支。
 
+这样你就完成了向远程仓库的推送。
+
+如果在github的remote上已经有了文件，会出现错误。此时应当先pull一下，即：
+git pull origin master
+然后再进行：
+git push origin master
+
+gitee可以使用private仓库
 git branch --set-upstream-to=origin/<branch> dev
 再新建立库时，如果合并库的时候试过push或pull失败，尝试用下面的代码:
 git pull origin master --allow-unrelated-histories
